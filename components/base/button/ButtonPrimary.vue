@@ -1,12 +1,15 @@
 <template>
   <button
     :id="id"
-    class="text-white bg-[#666CFF] hover:bg-[#565ad9] duration-500 uppercase rounded-md py-2.5 px-3 outline-none font-normal"
+    :class="[
+      'text-white bg-[#666CFF] hover:bg-[#565ad9] duration-500 rounded-md py-2.5 px-3 outline-none font-normal',
+      className,
+    ]"
     :type="type"
     :value="value"
     :disabled="disabled"
   >
-    {{ text }}
+    <span class="flex justify-center items-center h-full">{{ text }}</span>
   </button>
 </template>
 
@@ -14,6 +17,10 @@
 export default {
   props: {
     id: {
+      type: String,
+      default: "",
+    },
+    className: {
       type: String,
       default: "",
     },

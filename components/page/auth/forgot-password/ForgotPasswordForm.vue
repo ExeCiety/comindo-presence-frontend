@@ -12,7 +12,7 @@
     <div class="mt-6 mb-3">
       <InputFloating
         id="email"
-        className="py-3"
+        className="py-3 w-full"
         type="email"
         name="email"
         placeholder=""
@@ -23,9 +23,9 @@
       <ButtonPrimary
         @click="redirectToResetPassword"
         id="forgot-password"
+        className="w-full uppercase"
         type="button"
         text="Kirim"
-        class="w-full"
       />
     </div>
     <div class="my-4 text-center">
