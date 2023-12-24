@@ -14,6 +14,7 @@
     <div class="mt-6 mb-3">
       <InputFloating
         id="email"
+        className="w-full"
         type="email"
         name="email"
         placeholder=""
@@ -25,13 +26,14 @@
     <div class="my-3">
       <InputFloating
         id="password"
+        className="w-full"
         type="password"
         name="password"
         placeholder=""
         text="Password"
         hasIconRight
         iconRightName="eye-slash"
-        iconRightClass="text-xl"
+        iconRightClass="text-xl text-[#2c2d3c99]"
         v-model="form.password"
         :isError="isPasswordError"
       />
@@ -45,9 +47,9 @@
       <ButtonPrimary
         @click="login"
         id="login"
+        className="w-full uppercase"
         type="button"
         text="Login"
-        class="w-full"
       />
     </div>
   </form>

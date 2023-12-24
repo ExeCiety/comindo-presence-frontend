@@ -7,10 +7,10 @@
       :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)"
       :class="[
-        'w-full block rounded-md py-2.5 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border focus:outline-none peer',
+        'block rounded-md py-2.5 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border outline-none peer',
         isError
           ? 'border-red-500 peer-focus:border-red-500'
-          : 'border-[#4C4E64DE] peer-focus:border-[#4C4E64DE]',
+          : 'border-[#4C4E6438] peer-focus:border-[#4C4E6438]',
         disabled ? 'opacity-50 cursor-not-allowed' : '',
         className,
       ]"
@@ -32,7 +32,7 @@
         'absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto',
         isError
           ? 'text-red-500 peer-focus:text-red-500'
-          : 'text-[#4C4E6461] peer-focus:text-[#4C4E64DE]',
+          : 'text-[#4C4E6461] peer-focus:text-gray-400',
       ]"
       >{{ text }}</label
     >

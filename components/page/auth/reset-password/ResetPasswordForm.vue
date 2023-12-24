@@ -11,6 +11,7 @@
     <div class="mt-6 mb-3">
       <InputFloating
         id="password"
+        className="w-full"
         type="password"
         name="password"
         placeholder=""
@@ -23,6 +24,7 @@
     <div class="my-3">
       <InputFloating
         id="password_confirmation"
+        className="w-full"
         type="password"
         name="password_confirmation"
         placeholder=""
@@ -35,9 +37,9 @@
     <div class="my-4">
       <ButtonPrimary
         id="reset-password"
+        className="w-full uppercase"
         type="button"
         text="Atur Ulang"
-        class="w-full"
       />
     </div>
     <div class="my-4 text-center">

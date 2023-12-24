@@ -1,10 +1,13 @@
 <template>
   <input
     :id="id"
-    :class="'w-full block rounded-md py-2 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border border-[#4C4E6461] focus:outline-none focus:border-[#4C4E6461]'"
+    :class="[
+      'block rounded-md py-2 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border border-[#4C4E6461] focus:outline-none focus:border-[#4C4E6461]',
+      className,
+    ]"
     :type="type"
     :placeholder="placeholder"
-    :value="value"
+    @input="$emit('update:modelValue', $event.target.value)"
     :disabled="disabled"
   />
 </template>
@@ -13,6 +16,10 @@
 export default {
   props: {
     id: {
+      type: String,
+      default: "",
+    },
+    className: {
       type: String,
       default: "",
     },
@@ -28,7 +35,7 @@ export default {
       type: String,
       default: "",
     },
-    value: {
+    modelValue: {
       type: String,
       default: "",
     },
