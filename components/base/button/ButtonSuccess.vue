@@ -1,15 +1,13 @@
 <template>
-  <input
+  <button
     :id="id"
-    :class="[
-      'form-control border border-[#4C4E6438] focus:border-[#4C4E6438]',
-      className,
-    ]"
+    :class="['btn btn-outline-danger', className]"
     :type="type"
-    :placeholder="placeholder"
-    @input="$emit('update:modelValue', $event.target.value)"
+    :value="value"
     :disabled="disabled"
-  />
+  >
+    <span class="flex justify-center items-center h-full">{{ text }}</span>
+  </button>
 </template>
 
 <script>
@@ -25,17 +23,13 @@ export default {
     },
     type: {
       type: String,
-      default: "text",
+      default: "button",
     },
-    name: {
+    value: {
       type: String,
       default: "",
     },
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    modelValue: {
+    text: {
       type: String,
       default: "",
     },

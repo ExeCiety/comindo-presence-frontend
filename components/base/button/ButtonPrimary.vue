@@ -1,15 +1,23 @@
 <template>
   <button
     :id="id"
-    :class="[
-      'text-white bg-[#666CFF] hover:bg-[#565ad9] duration-500 rounded-md py-2.5 px-3 outline-none font-normal',
-      className,
-    ]"
+    :class="['btn btn-primary', className]"
     :type="type"
     :value="value"
     :disabled="disabled"
   >
-    <span class="flex justify-center items-center h-full">{{ text }}</span>
+    <BootstrapIcon
+      v-if="hasIcon"
+      :name="bootstrapIconName"
+      class="text-secondary text-2xl"
+    />
+    <span
+      :class="[
+        'flex justify-center items-center h-full',
+        hasIcon ? 'ml-2' : '',
+      ]"
+      >{{ text }}</span
+    >
   </button>
 </template>
 
@@ -39,6 +47,14 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    hasIcon: {
+      type: Boolean,
+      default: false,
+    },
+    bootstrapIconName: {
+      type: String,
+      default: "",
     },
   },
 };
