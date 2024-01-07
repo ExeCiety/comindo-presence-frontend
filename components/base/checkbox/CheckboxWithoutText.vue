@@ -1,14 +1,20 @@
+<style scoped>
+.transition {
+  transition: background-color 0.15s ease-in-out,
+    background-position 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+</style>
+
 <template>
   <input
     :id="id"
-    :class="[
-      'form-control border border-[#4C4E6438] focus:border-[#4C4E6438]',
-      className,
-    ]"
+    :class="[`form-check-input transition`, className]"
     :type="type"
-    :placeholder="placeholder"
+    :name="name"
     @input="$emit('update:modelValue', $event.target.value)"
     :disabled="disabled"
+    :checked="isChecked"
   />
 </template>
 
@@ -25,13 +31,9 @@ export default {
     },
     type: {
       type: String,
-      default: "text",
+      default: "checkbox",
     },
     name: {
-      type: String,
-      default: "",
-    },
-    placeholder: {
       type: String,
       default: "",
     },
@@ -40,6 +42,10 @@ export default {
       default: "",
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    isChecked: {
       type: Boolean,
       default: false,
     },

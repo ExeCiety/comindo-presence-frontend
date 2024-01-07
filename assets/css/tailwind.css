@@ -1,3 +1,301 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+* {
+    @apply box-border;
+}
+
+body {
+    @apply bg-[#F7F7F9];
+}
+
+/* App */
+#app {
+    @apply w-full h-screen bg-[#F7F7F9];
+}
+
+/* Main */
+#main {
+    @apply ml-[260px] bg-[#F7F7F9];
+}
+
+#main-content {
+    @apply pt-0 pb-6 px-10 bg-[#F7F7F9];
+}
+
+.page-content {
+    @apply block bg-[#F7F7F9];
+}
+
+@layer components {
+    /* Sidebar */
+    #sidebar:not(.active) ~ #main {
+        @apply ml-0;
+    }
+
+    #sidebar:not(.active) .sidebar-wrapper {
+        @apply left-[-260px] absolute;
+    }
+
+    .sidebar-backdrop {
+        @apply fixed top-0 left-0 w-full h-full bg-black opacity-50 z-[9];
+    }
+
+    .sidebar-wrapper {
+        @apply w-[260px] h-screen bg-[#F7F7F9] fixed top-0 bottom-0 left-0 z-10 transition-left overflow-anchor-none touch-action-auto overflow-hidden;
+    }
+
+    .sidebar-wrapper .sidebar-header {
+        @apply relative p-6 pb-3;
+    }
+
+    .sidebar-wrapper .sidebar-header .logo {
+        @apply text-2xl font-bold leading-6 tracking-[0.15px] text-secondary hover:text-primary duration-500;
+    }
+
+    .sidebar-wrapper .sidebar-header .sidebar-toggler {
+        @apply cursor-pointer text-xl absolute top-6 right-5 text-secondary hover:text-primary duration-500 2xl:hidden xl:hidden lg:block md:block sm:block;
+    }
+
+    .sidebar-wrapper .sidebar-menu .menu {
+        @apply my-3 py-0 px-3 font-medium text-base leading-6 tracking-[0.15px] text-secondary;
+    }
+
+    .sidebar-wrapper .sidebar-menu .menu .sidebar-item {
+        @apply relative mt-2;
+    }
+
+    .sidebar-wrapper .sidebar-menu .menu .sidebar-item .sidebar-link.router-link-active:not(logo) {
+        @apply bg-primary text-white font-semibold duration-500 hover:bg-[#5156e7];
+    }
+
+    .sidebar-wrapper .sidebar-menu .menu .sidebar-item .sidebar-link {
+        @apply flex items-center py-2 px-4 rounded-lg transition-all duration-200 hover:bg-[#dfdfe3];
+    }
+
+    /* Navbar */
+    .navbar {
+        @apply relative h-[90px] p-6 flex items-center 2xl:justify-end xl:justify-end justify-between;
+    }
+
+    .navbar .burger-btn {
+        @apply 2xl:hidden xl:hidden text-2xl text-secondary cursor-pointer lg:block;
+    }
+
+    .navbar .dropdown-menu {
+        @apply min-w-56 absolute top-full right-0 left-auto bg-white z-[100] py-1 mt-4 m-0 rounded-md shadow-xl;
+    }
+
+    .navbar .dropdown-menu .dropdown-item-1 {
+        @apply flex items-center px-3 py-1 hover:bg-[#f5f5f5] duration-500;
+    }
+
+    .navbar .dropdown-menu .dropdown-item-2 {
+        @apply flex items-center py-2.5 text-secondary font-normal hover:bg-[#f7f7f7] duration-500;
+    }
+
+    /* Card */
+
+    .card {
+        @apply relative min-w-0 flex flex-col bg-white rounded-lg drop-shadow-lg px-4 py-5;
+    }
+
+    /* Table */
+
+    .table-responsive {
+        @apply relative overflow-x-auto;    
+    }
+
+    .table {
+        @apply w-full text-left rtl:text-right;
+    }
+
+    .thead-line {
+        @apply flex items-center justify-between gap-5;
+    }
+
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th {
+        @apply border-inherit divide-solid border-0;
+    }
+
+    thead {
+        @apply bg-[#F5F5F7];
+    }
+
+    thead tr th {
+        @apply py-3 px-6 text-sm font-medium text-[#4C4E64DE] border-r border-[#4C4E641F] uppercase leading-6;
+    }
+
+    tbody tr {
+        @apply border-b border-[#4C4E641F];
+    }
+
+    tbody tr td {
+        @apply py-4 px-6 text-sm font-medium text-[#4C4E6499] leading-5;
+    }
+
+    /* Pagination */
+
+    .pagination {
+        @apply flex justify-center items-center mt-6 mb-1;
+    }
+
+    .pagination .pagination-menu {
+        @apply flex items-center -space-x-px h-8 gap-2;
+    }
+
+    .pagination .pagination-menu .pagination-link {
+        @apply flex items-center justify-center py-3 px-4 ms-0 leading-5 text-[#4C4E64DE] bg-transparent rounded-full hover:text-[#3f4153de] hover:bg-[#F6F6F7];
+    }
+
+    .pagination .pagination-menu .pagination-link.active {
+        @apply bg-[#F6F6F7] hover:text-[#3f4153de];
+    }
+
+    /* Button */
+
+    .btn {
+        @apply inline-flex items-center justify-center duration-500 rounded-md py-2.5 px-3 outline-none font-normal;
+    }
+
+    .btn.btn-primary {
+        @apply text-white bg-[#666CFF] hover:bg-[#565ad9];
+    }
+
+    .btn.btn-outline-primary {
+        @apply text-[#666CFF] border border-[#666CFF] hover:bg-[#666CFF] hover:text-white;
+    }
+
+    .btn.btn-secondary {
+        @apply text-white bg-[#4C4E64DE] hover:bg-[#3f4153de];
+    }
+
+    .btn.btn-outline-secondary {
+        @apply text-[#4C4E64DE] border border-[#4C4E64DE] hover:bg-[#F6F6F7] hover:text-[#3f4153de];
+    }
+
+    .btn.btn-success {
+        @apply text-white bg-[#72E128] hover:bg-[#5ec21f];
+    }
+
+    .btn.btn-outline-success {
+        @apply text-[#72E128] border border-[#72E128] hover:bg-[#72E128] hover:text-white;
+    }
+
+    .btn.btn-danger {
+        @apply text-white bg-[#FF4D49] hover:bg-[#e63b37];
+    }
+
+    .btn.btn-outline-danger {
+        @apply text-[#FF4D49] border border-[#FF4D49] hover:bg-[#FF4D49] hover:text-white;
+    }
+
+    .btn.btn-warning {
+        @apply text-white bg-[#FDB528] hover:bg-[#e6a21f];
+    }
+
+    .btn.btn-outline-warning {
+        @apply text-[#FDB528] border border-[#FDB528] hover:bg-[#FDB528] hover:text-white;
+    }
+
+    .btn.btn-light-blue {
+        @apply text-white bg-[#26C6F9] hover:bg-[#1fb9e6];
+    }
+
+    .btn.btn-outline-light-blue {
+        @apply text-[#26C6F9] border border-[#26C6F9] hover:bg-[#26C6F9] hover:text-white;
+    }
+
+    /* Form */
+
+    .form-control {
+        @apply block rounded-md py-2 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none outline-none focus:outline-none;
+    }
+
+    .form-control.form-control-lg {
+        @apply text-lg py-2.5;
+    }
+    
+    .form-control.form-control-sm {
+        @apply text-sm py-1.5;
+    }
+
+    .form-check-input {
+        @apply w-5 h-5 mt-1 align-top bg-white appearance-none rounded-[4px] bg-no-repeat bg-center bg-contain border border-[#4C4E6499] checked:bg-primary checked:border-[#666CFF] checked:text-white;
+    }
+
+    .form-check-input:checked[type="checkbox"] {
+        @apply bg-[url('/icons/check.svg')];
+    }
+}
+
+@layer utilities {
+    .transition-left {
+        transition: left 0.5s ease-out;
+    }
+      
+    .overflow-anchor-none {
+        overflow-anchor: none;
+    }
+      
+    .touch-action-auto {
+        touch-action: auto;
+    }
+    
+    /* Custom Colors */
+    .text-primary {
+        @apply text-[#666CFF];
+    }
+    
+    .text-success {
+        @apply text-[#72E128];
+    }
+
+    .text-light-blue {
+        @apply text-[#26C6F9];
+    }
+    
+    .text-danger {
+        @apply text-[#FF4D49];
+    }
+    
+    .text-warning {
+        @apply text-[#FDB528];
+    }
+    
+    .text-secondary {
+        @apply text-[#4C4E64DE];
+    }
+    
+    /* Custom Background Colors */
+    .bg-primary {
+        @apply bg-[#666CFF];
+    }
+    
+    .bg-success {
+        @apply bg-[#72E128];
+    }
+
+    .bg-light-blue {
+        @apply bg-[#26C6F9];
+    }
+    
+    .bg-danger {
+        @apply bg-[#FF4D49];
+    }
+    
+    .bg-warning {
+        @apply bg-[#FDB528];
+    }
+    
+    .bg-secondary {
+        @apply bg-[#4C4E64DE];
+    }
+}

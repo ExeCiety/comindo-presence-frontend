@@ -7,7 +7,7 @@
       :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)"
       :class="[
-        'block rounded-md py-2.5 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border outline-none peer',
+        'form-control border peer',
         isError
           ? 'border-red-500 peer-focus:border-red-500'
           : 'border-[#4C4E6438] peer-focus:border-[#4C4E6438]',
@@ -15,7 +15,6 @@
         className,
       ]"
       :disabled="disabled"
-      v-bind="$attrs"
     />
     <BootstrapIcon
       v-if="hasIconRight"
