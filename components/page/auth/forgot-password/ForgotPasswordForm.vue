@@ -12,11 +12,11 @@
     <div class="mt-6 mb-3">
       <InputFloating
         id="email"
-        className="py-3 w-full"
+        className="form-control-lg py-3 w-full"
         type="email"
         name="email"
         placeholder=""
-        text="Email"
+        textLabel="Email"
       />
     </div>
     <div class="mt-5 mb-3">
@@ -30,7 +30,7 @@
     </div>
     <div class="my-4 text-center">
       <NuxtLink
-        class="text-[#666CFF] hover:text-[#5b5fe0] duration-300"
+        class="text-primary hover:text-[#5b5fe0] duration-300"
         to="/auth/login"
       >
         <BootstrapIcon name="chevron-left" class="mr-2" />

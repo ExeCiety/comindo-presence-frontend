@@ -2,7 +2,11 @@
   <input
     :id="id"
     :class="[
-      'block rounded-md py-2 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border border-[#4C4E6461] focus:outline-none focus:border-[#4C4E6461]',
+      'form-control',
+      isError
+        ? 'border-red-500 focus:border-red-500'
+        : 'border-[#4C4E6438] focus:border-[#4C4E6438]',
+      disabled ? 'opacity-50 cursor-not-allowed' : '',
       className,
     ]"
     :type="type"
@@ -40,6 +44,10 @@ export default {
       default: "",
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    isError: {
       type: Boolean,
       default: false,
     },

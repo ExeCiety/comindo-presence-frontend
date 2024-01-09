@@ -3,11 +3,11 @@
     <input
       :id="id"
       :name="name"
-      :type="passwordVisible ? 'text' : type"
+      :type="type"
       :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)"
       :class="[
-        'block rounded-md py-2.5 px-3 text-[#4C4E64DE] placeholder:text-[#4C4E6461] appearance-none border outline-none peer',
+        'form-control peer',
         isError
           ? 'border-red-500 peer-focus:border-red-500'
           : 'border-[#4C4E6438] peer-focus:border-[#4C4E6438]',
@@ -15,16 +15,6 @@
         className,
       ]"
       :disabled="disabled"
-      v-bind="$attrs"
-    />
-    <BootstrapIcon
-      v-if="hasIconRight"
-      @click="togglePasswordVisibility"
-      :class="[
-        'absolute top-1/2 transform -translate-y-1/2 end-3 cursor-pointer',
-        iconRightClass,
-      ]"
-      :name="passwordVisible ? 'eye' : iconRightName"
     />
     <label
       :for="id"
@@ -34,18 +24,13 @@
           ? 'text-red-500 peer-focus:text-red-500'
           : 'text-[#4C4E6461] peer-focus:text-gray-400',
       ]"
-      >{{ text }}</label
+      >{{ textLabel }}</label
     >
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      passwordVisible: false,
-    };
-  },
   props: {
     id: {
       type: String,
@@ -75,30 +60,13 @@ export default {
       type: Boolean,
       default: false,
     },
-    text: {
-      type: String,
-      default: "",
-    },
-    hasIconRight: {
-      type: Boolean,
-      default: false,
-    },
-    iconRightName: {
-      type: String,
-      default: "",
-    },
-    iconRightClass: {
+    textLabel: {
       type: String,
       default: "",
     },
     isError: {
       type: Boolean,
       default: false,
-    },
-  },
-  methods: {
-    togglePasswordVisibility() {
-      this.passwordVisible = !this.passwordVisible;
     },
   },
 };

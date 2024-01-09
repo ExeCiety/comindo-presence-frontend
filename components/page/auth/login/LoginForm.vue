@@ -8,38 +8,40 @@
     <div class="mt-2 mb-3">
       <p class="text-base text-[#4C4E6499]">Silakan masuk ke akun Anda.</p>
     </div>
-    <div class="my-5">
-      <AlertDanger v-if="errorMsg" hasIcon :text="errorMsg" />
+    <div v-if="errorMsg" class="my-5">
+      <AlertDanger hasIcon :text="errorMsg" />
     </div>
     <div class="mt-6 mb-3">
       <InputFloating
         id="email"
-        className="w-full"
+        className="form-control-lg w-full"
         type="email"
         name="email"
         placeholder=""
-        text="Email"
+        textLabel="Email"
         v-model="form.email"
         :isError="isEmailError"
       />
     </div>
-    <div class="my-3">
+    <div class="relative my-3">
       <InputFloating
         id="password"
-        className="w-full"
-        type="password"
+        className="form-control-lg w-full"
+        :type="passwordVisible ? 'text' : 'password'"
         name="password"
         placeholder=""
-        text="Password"
-        hasIconRight
-        iconRightName="eye-slash"
-        iconRightClass="text-xl text-[#2c2d3c99]"
+        textLabel="Password"
         v-model="form.password"
         :isError="isPasswordError"
       />
+      <BootstrapIcon
+        @click="togglePasswordVisibility"
+        :name="passwordVisible ? 'eye' : 'eye-slash'"
+        class="absolute text-lg cursor-pointer text-secondary right-3.5 top-3"
+      />
     </div>
     <div class="mt-2 mb-4 text-end">
-      <NuxtLink class="text-[#666CFF]" to="/auth/forgot-password">
+      <NuxtLink class="text-primary" to="/auth/forgot-password">
         Lupa Password?
       </NuxtLink>
     </div>
@@ -59,6 +61,7 @@
 export default {
   data() {
     return {
+      passwordVisible: false,
       form: {
         email: "",
         password: "",
@@ -69,6 +72,9 @@ export default {
     };
   },
   methods: {
+    togglePasswordVisibility() {
+      this.passwordVisible = !this.passwordVisible;
+    },
     login() {
       if (this.form.email === "" || this.form.password === "") {
         this.isEmailError = true;

@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'relative p-[1rem] rounded-md border-none bg-[#FF4D49] text-white',
+      'relative p-[1rem] rounded-md border-none bg-danger text-white',
       className,
     ]"
   >

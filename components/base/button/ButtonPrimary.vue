@@ -1,10 +1,7 @@
 <template>
   <button
     :id="id"
-    :class="[
-      'text-white bg-[#666CFF] hover:bg-[#565ad9] duration-500 rounded-md py-2.5 px-3 outline-none font-normal',
-      className,
-    ]"
+    :class="['btn btn-primary', className]"
     :type="type"
     :value="value"
     :disabled="disabled"
